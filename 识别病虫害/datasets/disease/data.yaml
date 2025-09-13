@@ -1,0 +1,7 @@
+names: 
+- Brown_Spot
+nc: 1
+path: ./datasets/disease
+test: test/images
+train: train/images
+val: valid/images
