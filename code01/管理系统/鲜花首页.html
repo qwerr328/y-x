@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>flower-show</title>
+    <style>
+        /* 样式可以根据需求自行调整 */
+		body{
+			background-color: beige;
+		}
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .product {
+            display: inline-block;
+            
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .product img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+		button {
+		    background-color: #009688;
+		    color: white;
+		    padding: 10px 20px;
+		    border: none;
+		    border-radius: 5px;
+		    margin-right: 10px;
+		}
+		
+		button:hover {
+		    background-color: #0056b3;
+		    cursor: pointer;
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+		<h4 >最热商品展示</h4>
+		<hr />
+        <div class="product" onClick="showModal()">
+            <img src="images/玫瑰.png" alt="粉色花束">
+			<p>挚爱一生。</p>
+            <div id="product-info" style="display: none;">
+                <h3>商品编号: 001</h3>
+                <p>价格: $30</p>
+                <p>促销信息: 15% off</p>
+            </div>
+        </div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/蓝色妖姬.png" alt="粉色花束">
+			<p>浪漫桀骜。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/康乃馨.png" alt="粉色花束">
+			<p>母爱如水。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/向日葵.png" alt="粉色花束">
+			<p>向阳而生。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		
+		<h4 >最热商品展示</h4>
+		<hr />
+		<div class="product" onClick="showModal()">
+		    <img src="images/01.png" alt="粉色花束">
+			<p>满天繁星。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/02.png" alt="粉色花束">
+			<p>你是唯一。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/03.png" alt="粉色花束">
+			<p>不忘初心。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		<div class="product" onClick="showModal()">
+		    <img src="images/04.png" alt="粉色花束">
+			<p>开心久久。</p>
+		    <div id="product-info" style="display: none;">
+		        <h3>商品编号: 001</h3>
+		        <p>价格: $30</p>
+		        <p>促销信息: 15% off</p>
+		    </div>
+		</div>
+		
+		<marquee  direction="right" behavior="alternate"bgcolor="antiquewhite">花团锦簇，欢迎您光临！</marquee>
+		<div id="pagination">
+		    <button id="prev_page">上一页</button>
+		    <span id="page_numbers"></span>
+		    <button id="next_page">下一页</button>
+		    <input type="number" id="page_input" min="1" placeholder="跳转到页码">
+		    <button id="go_to_page">跳转</button>
+		</div>
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeModal()">&times;</span>
+            <div id="product-info-modal"></div>
+            <input type="number" id="quantity" value="1" min="1"/>
+            <button onClick="addToCart()">加入购物车</button>
+            <button onClick="closeModal()">取消</button>
+        </div>
+    </div>
+   
+    
+    
+    <script>
+    	// 假设这是我们的分页数据获取函数
+    	function fetchFlowers(page) {
+    	    // 这里应该调用后端API来获取数据
+    	    // 例如：fetch('/api/flowers?page=' + page)
+    	    // 然后解析响应并更新表格
+    	    // 这里我们假设有一个名为updateTable的函数来更新表格
+    	    updateTable(page);
+    	}
+    	
+    	// 获取按钮和输入框元素
+    	const prevPageButton = document.getElementById('prev_page');
+    	const nextPageButton = document.getElementById('next_page');
+    	const pageNumbersSpan = document.getElementById('page_numbers');
+    	const pageInput = document.getElementById('page_input');
+    	const goToPageButton = document.getElementById('go_to_page');
+    	
+    	// 初始化当前页码
+    	let currentPage = 1;
+    	// 假设总页数为10
+    	const totalPages = 10;
+    	
+    	// 初始化数据
+    	fetchFlowers(currentPage);
+    	
+    	// 更新页码显示
+    	function updatePagination() {
+    	    pageNumbersSpan.innerHTML = '';
+    	    for (let i = 1; i <= totalPages; i++) {
+    	        const button = document.createElement('button');
+    	        button.textContent = i;
+    	        button.onclick = function() {
+    	            currentPage = i;
+    	            fetchFlowers(currentPage);
+    	        };
+    	        pageNumbersSpan.appendChild(button);
+    	    }
+    	}
+    	
+    	// 上一页按钮点击事件
+    	prevPageButton.addEventListener('click', function() {
+    	    if (currentPage > 1) {
+    	        currentPage--;
+    	        fetchFlowers(currentPage);
+    	    }
+    	});
+    	
+    	// 下一页按钮点击事件
+    	nextPageButton.addEventListener('click', function() {
+    	    if (currentPage < totalPages) {
+    	        currentPage++;
+    	        fetchFlowers(currentPage);
+    	    }
+    	});
+    	
+    	// 跳转到指定页码的按钮点击事件
+    	goToPageButton.addEventListener('click', function() {
+    	    const page = parseInt(pageInput.value, 10);
+    	    if (page >= 1 && page <= totalPages) {
+    	        currentPage = page;
+    	        fetchFlowers(currentPage);
+    	    }
+    	});
+    	
+    	// 初始化分页显示
+    	updatePagination();
+        function showModal() {
+            var productInfo = document.getElementById('product-info');
+            document.getElementById('product-info-modal').innerHTML = productInfo.innerHTML;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        function addToCart() {
+            alert('商品已加入购物车');
+            closeModal();
+        }
+    </script>
+</body>
+</html>

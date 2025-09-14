@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>订单确认页面</title>
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+}
+button {
+  background-color: #009688;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th colspan="2">订单详情</th>
+  </tr>
+  <tr>
+    <td>订单编号</td>
+    <td>20221111001</td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>商品列表</h2></td>
+  </tr>
+  <tr>
+    <th>商品</th>
+    <th>金额</th>
+  </tr>
+  <tr>
+    <td>心中有海</td>
+    <td>¥122.0</td>
+  </tr>
+  <tr>
+    <td>不忘初心</td>
+    <td>¥148.0</td>
+  </tr>
+  <tr>
+    <td colspan="2">订单总价：¥270.0</td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>收货信息</h2></td>
+  </tr>
+  <tr>
+    <td>收货人</td>
+    <td><input type="text" placeholder="请输入您的姓名"></td>
+  </tr>
+  <tr>
+    <td>联系电话</td>
+    <td><input type="tel" placeholder="请输入您的电话号码"></td>
+  </tr>
+  <tr>
+    <td>收货地址</td>
+    <td><input type="text" placeholder="请输入您的收货地址"></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button onclick="editOrder()">修改订单</button>
+      <button onclick="confirmPayment()">确认支付</button>
+    </td>
+  </tr>
+</table>
+
+<script>
+function editOrder() {
+  alert('您可以编辑订单了');
+}
+
+function confirmPayment() {
+  // 弹出支付成功提示框
+  alert('支付成功！点击确定后跳入订单页');
+
+  // 延迟跳转到用户订单管理.html页面
+  setTimeout(function() {
+    window.location.href = "用户订单管理.html";
+  }, 2000); // 2秒延迟跳转
+}
+// 假设这是我们的分页数据获取函数
+		function fetchFlowers(page) {
+		    // 这里应该调用后端API来获取数据
+		    // 例如：fetch('/api/flowers?page=' + page)
+		    // 然后解析响应并更新表格
+		    // 这里我们假设有一个名为updateTable的函数来更新表格
+		    updateTable(page);
+		}
+		
+		// 获取按钮和输入框元素
+		const prevPageButton = document.getElementById('prev_page');
+		const nextPageButton = document.getElementById('next_page');
+		const pageNumbersSpan = document.getElementById('page_numbers');
+		const pageInput = document.getElementById('page_input');
+		const goToPageButton = document.getElementById('go_to_page');
+		
+		// 初始化当前页码
+		let currentPage = 1;
+		// 假设总页数为10
+		const totalPages = 10;
+		
+		// 初始化数据
+		fetchFlowers(currentPage);
+		
+		// 更新页码显示
+		function updatePagination() {
+		    pageNumbersSpan.innerHTML = '';
+		    for (let i = 1; i <= totalPages; i++) {
+		        const button = document.createElement('button');
+		        button.textContent = i;
+		        button.onclick = function() {
+		            currentPage = i;
+		            fetchFlowers(currentPage);
+		        };
+		        pageNumbersSpan.appendChild(button);
+		    }
+		}
+		
+		// 上一页按钮点击事件
+		prevPageButton.addEventListener('click', function() {
+		    if (currentPage > 1) {
+		        currentPage--;
+		        fetchFlowers(currentPage);
+		    }
+		});
+		
+		// 下一页按钮点击事件
+		nextPageButton.addEventListener('click', function() {
+		    if (currentPage < totalPages) {
+		        currentPage++;
+		        fetchFlowers(currentPage);
+		    }
+		});
+		
+		// 跳转到指定页码的按钮点击事件
+		goToPageButton.addEventListener('click', function() {
+		    const page = parseInt(pageInput.value, 10);
+		    if (page >= 1 && page <= totalPages) {
+		        currentPage = page;
+		        fetchFlowers(currentPage);
+		    }
+		});
+		
+		// 初始化分页显示
+		updatePagination();
+</script>
+<br />
+<div id="pagination">
+		    <button id="prev_page">上一页</button>
+		    <span id="page_numbers"></span>
+		    <button id="next_page">下一页</button>
+		    <input type="number" id="page_input" min="1" placeholder="跳转到页码">
+		    <button id="go_to_page">跳转</button>
+		</div>
+</body>
+</html>

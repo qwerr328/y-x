@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>编辑订单信息</title>
+<style>
+    /* 根据需要自行修改CSS样式 */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 200px;
+    }
+    button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>编辑订单信息</h1>
+    <form id="orderForm">
+        <label for="orderNumber">订单号:</label><br>
+        <input type="text" id="orderNumber" name="orderNumber"><br>
+        <label for="recipient">收件人:</label><br>
+        <input type="text" id="recipient" name="recipient"><br>
+        <label for="totalAmount">总金额:</label><br>
+        <input type="text" id="totalAmount" name="totalAmount"><br>
+        <label for="amountDue">待付金额:</label><br>
+        <input type="text" id="amountDue" name="amountDue"><br>
+        <label for="orderStatus">订单状态:</label><br>
+        <input type="text" id="orderStatus" name="orderStatus"><br>
+        <label for="paymentStatus">支付状态:</label><br>
+        <input type="text" id="paymentStatus" name="paymentStatus"><br>
+        <label for="shippingStatus">发货状态:</label><br>
+        <input type="text" id="shippingStatus" name="shippingStatus"><br>
+        <label for="paymentMethod">支付方式:</label><br>
+        <input type="text" id="paymentMethod" name="paymentMethod"><br>
+        <label for="shippingMethod">配送方式:</label><br>
+        <input type="text" id="shippingMethod" name="shippingMethod"><br>
+        <label for="orderDate">下单日期:</label><br>
+        <input type="text" id="orderDate" name="orderDate"><br>
+      <button type="submit"> <a herf="order-list">保存更改</a></button>
+    </form>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // 获取表单中的值
+            let orderNumber = document.getElementById("orderNumber").value;
+            let recipient = document.getElementById("recipient").value;
+            let totalAmount = document.getElementById("totalAmount").value;
+            let amountDue = document.getElementById("amountDue").value;
+            let orderStatus = document.getElementById("orderStatus").value;
+            let paymentStatus = document.getElementById("paymentStatus").value;
+            let shippingStatus = document.getElementById("shippingStatus").value;
+            let paymentMethod = document.getElementById("paymentMethod").value;
+            let shippingMethod = document.getElementById("shippingMethod").value;
+            let orderDate = document.getElementById("orderDate").value;
+
+            // 在这里可以添加代码来更新订单信息，比如通过API发送到后端进行保存等操作
+            // 这里只是一个简单示例，实际情况可能需要根据具体需求进行更多的处理
+
+            // 简单示例：在控制台打印出获取到的订单信息
+            console.log("订单号: " + orderNumber);
+            console.log("收件人: " + recipient);
+            console.log("总金额: " + totalAmount);
+            console.log("待付金额: " + amountDue);
+            console.log("订单状态: " + orderStatus);
+            console.log("支付状态: " + paymentStatus);
+            console.log("发货状态: " + shippingStatus);
+            console.log("支付方式: " + paymentMethod);
+            console.log("配送方式: " + shippingMethod);
+            console.log("下单日期: " + orderDate);
+			 window.location.href = "order-list.html";
+
+        });
+    </script>
+</body>
+</html>

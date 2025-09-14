@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-flower-show</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="./css/font.css">
+        <link rel="stylesheet" href="./css/xadmin.css">
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="./js/xadmin.js"></script>
+        <!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        <div class="x-nav">
+            <span class="layui-breadcrumb">
+                <a href="">首页</a>
+                <a href="">演示</a>
+                <a>
+                    <cite>导航元素</cite></a>
+            </span>
+            <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+                <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+            </a>
+        </div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <form class="layui-form layui-col-md12  layui-form-pane">
+                             <div class="layui-form-item x-city" id="start">
+                              <label class="layui-form-label">城市联动</label>
+                              <div class="layui-input-inline">
+                                <select name="province" lay-filter="province">
+                                  <option value="">请选择省</option>
+                                </select>
+                              </div>
+                              <div class="layui-input-inline">
+                                <select name="city" lay-filter="city">
+                                  <option value="">请选择市</option>
+                                </select>
+                              </div>
+                              <div class="layui-input-inline">
+                                <select name="area" lay-filter="area">
+                                  <option value="">请选择县/区</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="layui-form-item x-city" id="end">
+                              <label class="layui-form-label">城市联动</label>
+                              <div class="layui-input-inline">
+                                <select name="province" lay-filter="province">
+                                  <option value="">请选择省</option>
+                                </select>
+                              </div>
+                              <div class="layui-input-inline">
+                                <select name="city" lay-filter="city">
+                                  <option value="">请选择市</option>
+                                </select>
+                              </div>
+                              <div class="layui-input-inline">
+                                <select name="area" lay-filter="area">
+                                  <option value="">请选择县/区</option>
+                                </select>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <hr>
+                        <div class="layui-card-body ">
+<pre class="layui-code" lay-title="JavaScript" lay-skin="notepad">
+  市花是一个城市的代表花卉。作为一种市花，通常都是要在该城市常见的品种。
+  河北省石家庄市：月季花 [3]                 山西省太原市：菊花                    辽宁省沈阳市：玫瑰                   安徽省合肥市：桂花、石榴花
+  吉林省长春市：君子兰                       黑龙江省哈尔滨市：丁香                江苏省南京市：梅花                   福建省福州市：茉莉花
+  浙江省杭州市：桂花 					    江西省南昌市：金边瑞香、月季花        河南省郑州市：月季花                   湖北省武汉市：梅花
+  山东省济南市：荷花、玫瑰 [36]               台湾省台北市：杜鹃                   湖南省长沙市：杜鹃                    广东省广州市：木棉花
+  海南省海口市：三角梅                       贵州省贵阳市：兰花、紫薇              云南省昆明市：云南山茶花               四川省成都市：木芙蓉
+  陕西省西安市：石榴花						甘肃省兰州市：玫瑰                    青海省西宁市：丁香
+  内蒙古自治区呼和浩特市：丁香
+  广西壮族自治区南宁市：朱槿
+  西藏自治区拉萨市：格桑花
+  宁夏回族自治区银川市：玫瑰、马兰花
+  新疆维吾尔自治区乌鲁木齐市：玫瑰
+  
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="./js/xcity.js"></script>
+        <script>
+          layui.use(['form','code'], function(){
+            form = layui.form;
+
+            layui.code();
+
+            $('#start').xcity();
+            
+            $('#end').xcity('广东','广州市','东山区');
+
+          });
+        </script>
+        <script>var _hmt = _hmt || []; (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();</script>
+    </body>
+</html>

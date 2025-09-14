@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flower-show</title>
+</head>
+
+<style>
+    body {
+        background-image: url(landscape.jpg);
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .demo {
+        padding: 50px;
+        height: 80%;
+        width: 40%;
+        margin: 0px auto;
+        background-color: azure;
+    }
+
+    .div {
+        width: 300px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    p {
+        color: red;
+        float: left;
+        margin-left: 20%;
+    }
+</style>
+
+<body>
+    <div class="demo">
+        <div class="div" style="font-size: 20px; color: red;">请注册个人信息:</div>
+        <p>*</p><div class="div">
+        姓名：<input id="Na" type="text" class="inputs" onchange="Name()"/>
+        <div id="name" class="red" style="color: red;"></div></div>
+        <div class="div">
+        性别：<input name="sex" type="radio" value="男" checked/>男 <input name="sex" type="radio" value="女"/>女</div>
+        <div class="div">
+        出生日期：<select id="year"><script type="text/javascript">
+                for(var i=2000;i<=2022;i++){
+                document.write("<option value="+i+">"+i+"</option>");}
+                </script></select>年
+                <select id="month"><script type="text/javascript">
+                for(var i=1;i<=12;i++){
+                document.write("<option value="+i+">"+i+"</option>");}
+                </script></select>月
+                <select id="day"><script type="text/javascript">
+                for(var i=1;i<=31;i++){
+                document.write("<option value="+i+">"+i+"</option>");}
+                </script></select>日</div>
+        <p>*</p><div class="div">
+        居住地址：<input id="Un" type="text" class="inputs" onchange="University()"/>
+        <div id="un" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        所属省份：<input id="Co" type="text" class="inputs" onchange="College()"/>
+        <div id="co" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        具体住址：<input id="Cl" type="text" class="inputs" onchange="Class()"/>
+        <div id="cl" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        身份证号：<input id="Num" type="text" class="inputs" onchange="Number()"/>
+        <div id="num" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        注册用户名：<input id="user" type="text"  class="inputs" onchange="checkUser()"/>
+        <div id="userId" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        请输入密码：<input id="pwd" type="password"  class="inputs" onchange="checkPwd()"/>
+        <div id="pwdId" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        请确认密码：<input id="repwd" type="password"  class="inputs" onchange="checkRepwd()"/>
+        <div id="repwdId" class="red" style="color: red;"></div></div>
+        <p>*</p><div class="div">
+        输入电子邮箱：<input id="email" type="text"  class="inputs" onchange="checkEmail()"/>
+        <div id="emailId" class="red" style="color: red;"></div></div>
+        <div class="div">
+        <div class="div">
+                   <input name="sub" type="submit" value="注册" onclick="showSuccessMessage()"/>
+                   <input name="cancel" type="reset" value="清除" onclick="resetForm()"/>
+               </div>
+         <script>
+                function showSuccessMessage() {
+                    alert('注册成功！');
+                    window.location.href = '用户登录.html'; // 跳转到用户登录页面
+                }
+        
+                function resetForm() {
+                    document.getElementById("Na").value = "";
+                    // 重置其他输入框的值
+                    // 例如 document.getElementById("email").value = "";
+                }
+            </script>
+		</body>
+	</html>
+        

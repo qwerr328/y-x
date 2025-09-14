@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('images/10.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.5); /* 设置半透明背景 */
+            flex-direction: column; /* 垂直方向排列内容 */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px; /* 调整标题距离顶部的间距 */
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login Selection</h1>
+    <button onclick="redirectToRole('admin')">Admin Login</button>
+    <button onclick="redirectToRole('user')">User Login</button>
+
+    <script>
+        function redirectToRole(role) {
+            if (role === 'admin') {
+                window.location.href = 'index0.html';
+            } else if (role === 'user') {
+                window.location.href = '用户登录.html';
+            }
+        }
+    </script>
+</body>
+
+</html>
